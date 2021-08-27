@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
 import './App.css';
+import Authors from "./components/Authors/Authors";
+import Books from "./components/Books/Books";
+import FilteredBook from "./components/FilteredBook/FilteredBooks";
+import {fetchAuthors, fetchBook} from "./api/api";
 
 function App() {
+
+    fetchBook();
+    fetchAuthors();
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App-container">
+          <div className="App-row">
+              <div>Authors</div>
+              <Authors />
+          </div>
+          <div className="App-row">
+              <div>Books</div>
+              <Books />
+          </div>
+          <div className="App-row">
+              <div>Books for the selected author</div>
+              <FilteredBook />
+          </div>
+      </div>
   );
 }
 

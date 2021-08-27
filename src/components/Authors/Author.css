@@ -1,0 +1,7 @@
+.author--list:hover {
+    background: #d5d5d5;
+}
+
+.selected {
+    background: #ffe5e5;
+}
